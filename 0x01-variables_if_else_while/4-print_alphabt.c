@@ -1,22 +1,23 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include<stdio.h>
 
 /**
- * main - Prints the alphabet without q and e.
+ * main - 4-alx
  *
- * Return: Always 0 (Success)
+ * Return: Always 0
  */
 int main(void)
 {
-	int i;
+	int i = 97;
 
-	for (i = 97; i < 123; i++)
+	while (i <= 122)
 	{
-		if (i != 101 && i != 113)
+		if (i == 101 || i == 113)
 		{
-			putchar(i);
+			i++;
+			break;
 		}
+		putchar(i);
+		i++;
 	}
 	putchar('\n');
 	return (0);
