@@ -1,17 +1,18 @@
 #include <stdio.h>
 
 /**
- * main - Prints numbers from 0 to 9.
+ * main - 5-alx
  *
- * Return: Always 0 (Success)
+ * Return: Always 0
  */
 int main(void)
 {
-	int i;
+	int i = 0;
 
-	for (i = 0; i < 10; i++)
+	while (i < 10)
 	{
 		printf("%d", i);
+		i++;
 	}
 	putchar('\n');
 	return (0);
