@@ -16,7 +16,7 @@ void times_table(void)
 			re = row * col;
 			if (col == 0)
 			{
-				_putchar('0');
+				putchar('0');
 			}
 			else
 			{
@@ -31,7 +31,7 @@ void times_table(void)
 			}
 			if (col != 9)
 			{
-				_putchar(',');
+				putchar(',');
 			}
 			col++;
 		}
