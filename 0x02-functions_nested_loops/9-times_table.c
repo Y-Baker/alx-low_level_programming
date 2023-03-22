@@ -23,9 +23,7 @@ void times_table(void)
 					printf("  %d", re);
 				}
 				else
-				{
 					printf(" %d", re);
-				}
 			}
 			if (col != 9)
 			{
