@@ -1,30 +1,21 @@
 #include "main.h"
 
-
 /**
- * jack_bauer - prints every minute of the day of Jack Bauer
- * starng from 00:00 to 23:59
- */
+ * jack_bauer - make an watch
+*/
+
 void jack_bauer(void)
 {
-	int i, j;
+	int hour = 0, min;
 
-
-	i = 0;
-
-	while (i < 24)
+	while (hour < 24)
 	{
-		j = 0;
-		while (j < 60)
+		min = 0;
+		while (min < 60)
 		{
-			_putchar((i / 10) + '0');
-			_putchar((i % 10) + '0');
-			_putchar(':');
-			_putchar((j / 10) + '0');
-			_putchar((j % 10) + '0');
-			_putchar('\n');
-			j++;
+			printf("%.2d:%.2d\n", hour, min);
+			min++;
 		}
-		i++;
+		hour++;
 	}
 }
