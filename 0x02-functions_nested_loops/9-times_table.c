@@ -15,7 +15,9 @@ void times_table(void)
 		{
 			re = row * col;
 			if (col == 0)
+			{
 				_putchar('0');
+			}
 			else
 			{
 				if (re < 10)
@@ -23,7 +25,9 @@ void times_table(void)
 					printf("  %d", re);
 				}
 				else
+				{
 					printf(" %d", re);
+				}
 			}
 			if (col != 9)
 			{
