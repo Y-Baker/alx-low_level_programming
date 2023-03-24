@@ -1,18 +1,24 @@
 #include "main.h"
 
 /**
- * print_most_numbers - print number except 2, 4
+ * print_most_numbers - print all numbers except excluded ones
+ *
+ * Description: PRINT ALL NUMBERS EXCEPT A & B
+ *
+ * Return: Always 0 (success)
+ *
  */
 
 void print_most_numbers(void)
 {
-	char c;
-	
-	for (c = '0'; c <= '9'; c++)
+	int a;
+
+	for (a = '0'; a <= '9'; a++)
 	{
-		if (c == '2' || c == '4')
-			continue;
-		_putchar(c);
+		if (a != '2' && a != '4')
+		{
+			_putchar(a);
+		}
 	}
 	_putchar('\n');
 }
