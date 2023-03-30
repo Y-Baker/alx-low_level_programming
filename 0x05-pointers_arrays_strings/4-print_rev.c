@@ -7,8 +7,12 @@
 
 void print_rev(char *s)
 {
-	int lenth = _strlen(s);
-
+	int lenth = 0;
+	
+	while (s[lenth])
+	{
+		lenth++;
+	}
 	while (lenth--)
 	{
 		_putchar(s[lenth]);
