@@ -14,7 +14,7 @@ char *leet(char *a)
 	while (a[i])
 	{
 		n = 0;
-		while (leet[n] != 'L')
+		while (leet[n] != '1')
 		{
 			if (a[i] == leet[n])
 			{
