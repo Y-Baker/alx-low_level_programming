@@ -1,30 +1,31 @@
 #include "main.h"
-
 /**
- * _strspn - Entry point
- * @s: input
- * @accept: input
- * Return: Always 0 (Success)
- */
+ * _strspn - fun 3
+ * @s: the string to checked
+ * @accept: the string to check
+ * Return: the number of char in @accept
+*/
+
 
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int n = 0;
-	int r;
+	int i = 0, r = 0, count;
 
-	while (*s)
+	while (s[i])
 	{
-		for (r = 0; accept[r]; r++)
+		for (int r = 0; accept[r]; r++)
 		{
-			if (*s == accept[r])
+			if (accept[r] == s[i])
 			{
-				n++;
+				count++;
 				break;
 			}
-			else if (accept[r + 1] == '\0')
-				return (n);
+			else if (accept[r + 1] == '\00')
+			{
+				return (count);
+			}
 		}
-		s++;
+		i++;
 	}
-	return (n);
+	return (count);
 }

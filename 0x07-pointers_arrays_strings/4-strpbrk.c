@@ -1,25 +1,26 @@
 #include "main.h"
 
 /**
- * _strpbrk - Entry point
- * @s: input
- * @accept: input
- * Return: Always 0 (Success)
+ * _strpbrk - the fun 4
+ * @s: the string search in
+ * @accept: the string looking for
+ * Return: the string from first match to end
  */
 
 char *_strpbrk(char *s, char *accept)
 {
-		int k;
+	int len1 = 0;
 
-		while (*s)
+	while (s[len1])
+	{
+		for (int len2 = 0; accept[len2]; len2++)
 		{
-			for (k = 0; accept[k]; k++)
+			if (s[len1] == accept[len2])
 			{
-			if (*s == accept[k])
-			return (s);
+				return (s + len1);
 			}
-		s++;
 		}
-
-	return ('\0');
+		len1++;
+	}
+	return (NULL);
 }
