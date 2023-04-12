@@ -21,7 +21,7 @@ int is_prime_number(int n)
  * Return: 0 if i factor to n
 */
 
-int check(int n, unsigned int i)
+int check(int n, int i)
 {
 	if (i >= n / 2)
 		return (1);
