@@ -9,7 +9,7 @@ int check_string(char *s, unsigned short i, unsigned short len);
 
 int is_palindrome(char *s)
 {
-	unsigned short i, len;
+	unsigned short len;
 
 	if (*s == 0)
 		return (1);
