@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 {
 	int i = 1, mul = 1;
 
-	if (argc < 2)
+	if (argc <= 2)
 	{
 		printf("Error\n");
 		return (1);
