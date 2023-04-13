@@ -1,46 +1,46 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
 #include "main.h"
 
 /**
- * main - Program that takes in all integr arguments and returns the sum
+ * main - add two int
  * @argc: Number of command line arguments
- * @argv: Array name
- * Return: 1 if a non-integer is among the passed in arguments, 0 otherwise
- */
+ * @argv: Array of arguments
+ * Return: 0
+*/
 
 int main(int argc, char *argv[])
 {
-	int i, j, length, sum;
-	char *ptr;
+	int i = 1, sum = 0;
 
-	if (argc < 2)
-	printf("0\n");
-
-	else
+	while (i < argc)
 	{
-		sum = 0;
-		for (i = 1; i < argc; i++)
+		if (strnum(argv[i]))
 		{
-			ptr = argv[i];
-			length = strlen(ptr);
-
-			for (j = 0; j < length; j++)
-			{
-				if (isdigit(*(ptr + j)) == 0)
-				{
-					printf("Error\n");
-					return (1);
-				}
-			}
-
-			sum += atoi(argv[i]);
+			printf("Error\n");
+			return (1);
 		}
-
-		printf("%d\n", sum);
+		else
+			sum += atoi(argv[i]);
+		i++;
 	}
+	printf("%d\n", sum);
+	return (0);
+}
 
+/**
+ * strnum - check if the string is a number or not
+ * @s: the string
+ * Return: 0 if number otherwise 1
+*/
+
+int strnum(char *s)
+{
+	int len = 0;
+
+	while (s[len])
+	{
+		if (!(s[len] >= 48 && s[len] <= 57))
+			return (1);
+		len++;
+	}
 	return (0);
 }
