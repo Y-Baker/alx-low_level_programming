@@ -45,7 +45,7 @@ int op_div(int a, int b)
 	return (a / b);
 }
 /**
- * op_mol - the modulus
+ * op_mod - the modulus
  * @a: the first mumber
  * @b: the second number
  * Return: the result
