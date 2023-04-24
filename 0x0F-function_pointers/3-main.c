@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 	}
 
 	op_fun = get_op_func(argv[2]);
-	if (op_fun == NULL || argv[1] != '\0')
+	if (op_fun == NULL || argv[1] != NULL)
 	{
 		printf("Error\n");
 		return (99);
