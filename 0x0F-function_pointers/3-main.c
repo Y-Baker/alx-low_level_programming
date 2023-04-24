@@ -15,20 +15,20 @@ int main(int argc, char *argv[])
 
 	if (argc != 4)
 	{
-		printf("Error");
+		printf("Error\n");
 		return (98);
 	}
 
 	op_fun = get_op_func(argv[2]);
 	if (op_fun == NULL)
 	{
-		printf("Error");
+		printf("Error\n");
 		return (99);
 	}
 	re = op_fun(atoi(argv[1]), atoi(argv[3]));
 	if (re == 100)
 	{
-		printf("Error");
+		printf("Error\n");
 		return (100);
 	}
 	printf("%d\n", re);
