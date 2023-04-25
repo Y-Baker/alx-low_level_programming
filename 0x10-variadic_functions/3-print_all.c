@@ -42,6 +42,6 @@ void print_all(const char * const format, ...)
 		} index++;
 		if (format[index] && key)
 			printf(", ");
-	}
+	} putchar('\n');
 	va_end(args);
 }
