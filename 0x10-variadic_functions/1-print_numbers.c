@@ -30,6 +30,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		}
 		i++;
 	}
+	putchar('\n');
 	va_end(nums);
 }
 
