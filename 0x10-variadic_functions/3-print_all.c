@@ -12,7 +12,7 @@ void print_all(const char * const format, ...)
 	va_list args;
 
 	va_start(args, format);
-	while (format[index])
+	while (format && format[index])
 	{
 		key = 1;
 		switch (format[index])
