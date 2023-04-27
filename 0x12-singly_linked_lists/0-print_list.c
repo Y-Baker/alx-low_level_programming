@@ -10,6 +10,7 @@ size_t print_list(const list_t *h)
 {
 	size_t count = 0, index = 0;
 	char *str;
+
 	while (h)
 	{
 		if (h->str == NULL)
@@ -37,6 +38,5 @@ size_t print_list(const list_t *h)
 		count++;
 		h = h->next;
 	}
-
 	return (count);
 }
