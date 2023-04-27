@@ -25,7 +25,7 @@ size_t print_list(const list_t *h)
 		else
 		{
 			_putchar('[');
-			putchar(h->len + '0');
+			_putchar(h->len + '0');
 			_putchar(']');
 			_putchar(' ');
 			while (index < h->len)
