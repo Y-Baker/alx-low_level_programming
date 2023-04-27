@@ -28,7 +28,7 @@ size_t print_list(const list_t *h)
 			putchar(h->len + '0');
 			_putchar(']');
 			_putchar(' ');
-			while(index < h->len)
+			while (index < h->len)
 			{
 				_putchar(h->str[index]);
 				index++;
@@ -38,5 +38,5 @@ size_t print_list(const list_t *h)
 		count++;
 		h = h->next;
 	}
-	return(count);
+	return (count);
 }
