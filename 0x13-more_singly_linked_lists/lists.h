@@ -15,6 +15,7 @@ typedef struct listint_s
 
 					/*headers*/
 #include <stdlib.h>
+#include <stdio.h>
 
 					/*prototype*/
 int _putchar(char c);
