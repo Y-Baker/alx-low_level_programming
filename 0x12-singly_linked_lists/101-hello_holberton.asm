@@ -1,18 +1,21 @@
-section .data
-    message db "Hello, Holberton", 0xA
+extern printf
 
 section .text
-    global _start
+   global main
 
-_start:
-    ; write message to stdout
-    mov eax, 4
-    mov ebx, 1
-    mov ecx, message
-    mov edx, 16
-    int 0x80
+main:
+   push rbp
 
-    ; exit
-    mov eax, 1
-    xor ebx, ebx
-    int 0x80
+   mov rdi,fmt
+   mov rsi,msg
+   mov rax,0
+   call printf
+
+   pop rbp
+
+   mov rax,0
+   ret
+
+section .data
+   msg: db "Hello, Holberton", 0
+   fmt: db "%s", 10, 0
