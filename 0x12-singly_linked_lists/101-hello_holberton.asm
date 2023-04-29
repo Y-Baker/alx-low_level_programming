@@ -28,7 +28,9 @@ main:
 	call	putchar
 	addq	$1, -8(%rbp)
 .L2:
-	cmpq	$0, -8(%rbp)
+	movq	-8(%rbp), %rax
+	movzbl	(%rax), %eax
+	testb	%al, %al
 	jne	.L3
 	movl	$10, %ecx
 	call	putchar

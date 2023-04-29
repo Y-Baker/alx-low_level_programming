@@ -4,7 +4,7 @@ int main()
 {
     char *str = "Hello, Holberton";
     
-    while (str)
+    while (*str)
     {
         putchar(str[0]);
         str++;
