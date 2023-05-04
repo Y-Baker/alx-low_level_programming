@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * binary_to_unit - convert from binary to decimal
+ * binary_to_uint - convert from binary to decimal
  * @b: pointer to string contain the binary number
  * Return: the decimal number
 */
@@ -24,7 +24,6 @@ unsigned int binary_to_uint(const char *b)
 			break;
 		default:
 			return (0);
-			break;
 		}
 	power++;
 	index++;
