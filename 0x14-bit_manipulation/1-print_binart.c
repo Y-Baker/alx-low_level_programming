@@ -10,7 +10,7 @@ void print_binary(unsigned long int n)
 	int i, state = 0;
 	unsigned long int present;
 
-	for (i = 31; i >= 0; i--)
+	for (i = 63; i >= 0; i--)
 	{
 		present = n >> i;
 
