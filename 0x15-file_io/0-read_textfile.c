@@ -1,5 +1,4 @@
-#include <unistd.h>
-#include <fcntl.h>
+#include "main.h"
 
 /**
  * read_textfile - read from file
