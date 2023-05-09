@@ -22,16 +22,18 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
+	{
 		free(buffer);
 		return (0);
-
+	}
 	rd_return = read(fd, buffer, letters);
 	wr_count = write(STDOUT_FILENO, buffer, rd_return);
 
 	if (rd_return != wr_count || rd_return == -1 || wr_count == -1)
+	{
 		free(buffer);
 		return (0);
-
+	}
 	free(buffer);
 	close(fd);
 	return (wr_count);
