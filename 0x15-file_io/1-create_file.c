@@ -14,7 +14,7 @@ int create_file(const char *filename, char *text_content)
 	if (!filename)
 		return (-1);
 
-	fd = open(filename, O_CREAT | O_RDWR | O_TRUNC);
+	fd = open(filename, O_CREAT | O_TRUNC | O_RDWR, S_IWUSR | S_IRUSR);
 	if (fd == -1)
 		return (-1);
 
