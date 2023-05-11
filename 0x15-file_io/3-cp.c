@@ -1,52 +1,60 @@
 #include "main.h"
-#include <stdio.h>
 
-#define MAXSIZE 1048
-#define SE STDERR_FILENO
-
+#define BUFF_SIZE 1024
 /**
- * main - create the copy bash
- * @argc: argument count
- * @argv: arguments as strings
- * Return: 0
- */
+ * main - program to cp text in file to anthor one
+ * @argc: the number of arguments
+ * @argv: array to the arguments
+ * Return: 0 if success
+ * 97: if the number of argument is not the correct one
+ * 98: if file_from does not exist, or if you can not read it
+ * 99: if you can not create or if write to file_to fails
+*/
+
 int main(int argc, char *argv[])
 {
-	int input_fd, output_fd, istatus, ostatus;
-	char buf[MAXSIZE];
+	int fd[2], stat_rd, stat_wr;
+	int istatus, ostatus;
+	char *ms, buffer[BUFF_SIZE];
 	mode_t mode;
 
-	mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
+	ms = "Usage: cp file_from file_to\n";
+	mode = S_IWUSR | S_IRUSR | S_IRGRP | S_IWGRP | S_IROTH;
 	if (argc != 3)
-		dprintf(SE, "Usage: cp file_from file_to\n"), exit(97);
-	input_fd = open(argv[1], O_RDONLY);
-	if (input_fd == -1)
-		dprintf(SE, "Error: Can't read from file %s\n", argv[1]), exit(98);
-	output_fd = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, mode);
-	if (output_fd == -1)
-		dprintf(SE, "Error: Can't write to %s\n", argv[2]), exit(99);
-
-	do {
-		istatus = read(input_fd, buf, MAXSIZE);
-		if (istatus == -1)
-		{
-			dprintf(SE, "Error: Can't read from file %s\n", argv[1]);
-			exit(98);
-		}
-		if (istatus > 0)
-		{
-			ostatus = write(output_fd, buf, (ssize_t) istatus);
-			if (ostatus == -1)
-				dprintf(SE, "Error: Can't write to %s\n", argv[2]), exit(99);
-		}
-	} while (istatus > 0);
-
-	istatus = close(input_fd);
+		write(STDERR_FILENO, ms, count_len(ms)), exit(97);
+	fd[0] = open(argv[1], O_RDONLY);
+	if (fd[0] == -1)
+		dprintf(2, "Error: Can't read from file %s\n", argv[1]), exit(98);
+	fd[1] = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, mode);
+	if (fd[1] == -1)
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
+	do {{
+		stat_rd = read(fd[0], buffer, BUFF_SIZE);
+		if (stat_rd == -1)
+			dprintf(2, "Error: Can't read from file %s\n", argv[1]), exit(98);
+		stat_wr = write(fd[1], buffer, (ssize_t) stat_rd);
+		if (stat_wr == -1)
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
+	} while (stat_rd > 0);
+	istatus = close(fd[0]);
 	if (istatus == -1)
-		dprintf(SE, "Error: Can't close fd %d\n", input_fd), exit(100);
-	ostatus = close(output_fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd[0]), exit(100);
+	ostatus = close(fd[1]);
 	if (ostatus == -1)
-		dprintf(SE, "Error: Can't close fd %d\n", output_fd), exit(100);
-
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd[1]), exit(100);
 	return (0);
+}
+
+/**
+ * count_len - calculate the len of a string
+ * @ms: the mss
+ * Return: the len of the mss
+*/
+int count_len(char *ms)
+{
+	int len = 0;
+
+	while (ms[len])
+		len++;
+	return (len);
 }
