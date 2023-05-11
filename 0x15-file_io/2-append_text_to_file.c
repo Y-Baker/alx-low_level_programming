@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * append-text_to_file - append text to the file if it exits
+ * append_text_to_file - append text to the file if it exits
  * @filename: the name of the file
  * @text_content: the text to add to the file
  * Return: 1 if success, Otherwise -1
