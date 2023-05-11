@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <string.h>
 #define BUFF_SIZE 1024
 /**
  * main - program to cp text in file to anthor one
@@ -21,14 +21,14 @@ int main(int argc, char *argv[])
 	ms = "Usage: cp file_from file_to\n";
 	mode = S_IWUSR | S_IRUSR | S_IRGRP | S_IWGRP | S_IROTH;
 	if (argc != 3)
-		write(STDERR_FILENO, ms, count_len(ms)), exit(97);
+		write(STDERR_FILENO, ms, strlen(ms)), exit(97);
 	fd[0] = open(argv[1], O_RDONLY);
 	if (fd[0] == -1)
 		dprintf(2, "Error: Can't read from file %s\n", argv[1]), exit(98);
 	fd[1] = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, mode);
 	if (fd[1] == -1)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
-	do {{
+	do {
 		stat_rd = read(fd[0], buffer, BUFF_SIZE);
 		if (stat_rd == -1)
 			dprintf(2, "Error: Can't read from file %s\n", argv[1]), exit(98);
@@ -43,18 +43,4 @@ int main(int argc, char *argv[])
 	if (ostatus == -1)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd[1]), exit(100);
 	return (0);
-}
-
-/**
- * count_len - calculate the len of a string
- * @ms: the mss
- * Return: the len of the mss
-*/
-int count_len(char *ms)
-{
-	int len = 0;
-
-	while (ms[len])
-		len++;
-	return (len);
 }
