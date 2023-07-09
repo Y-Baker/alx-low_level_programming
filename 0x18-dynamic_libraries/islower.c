@@ -1,17 +1,15 @@
 #include "main.h"
-#include <ctype.h>
+
 /**
- *_islower - check for lowercase alphabet
- *@c: the character to print
- *Return: 0
+ * _islower - check_islower_case
+ * @c: is the char to check
+ * Return: 0 if lower case , 1 otherwise
  */
 int _islower(int c)
 {
-if (c >= 97 && c <= 122)
-{
-return (1);
+	if (c >= 97 && c <= 122)
+	{
+		return (1);
+	}
+	return (0);
 }
-else
-return (0);
-}
-

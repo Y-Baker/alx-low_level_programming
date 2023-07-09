@@ -1,42 +1,28 @@
 #include "main.h"
-#include <stdlib.h>
 
 /**
- *_strstr - find the first occurence
- *@haystack: string
- *@needle: string
- *
- *Return: the pointer to the first occurence
+ * _strstr - Entry point
+ * @haystack: input
+ * @needle: input
+ * Return: Always 0 (Success)
  */
-#include <stdio.h>
+
 char *_strstr(char *haystack, char *needle)
 {
-
-	int i = 0;
-	int j = 0;
-	int k, s;
-
-	for (s = 0; needle[s]; s++)
-	;
-	if (s == 0)
-	return (haystack);
-	while (haystack[i])
+	for (; *haystack != '\0'; haystack++)
 	{
-		if (haystack[i] == needle[j])
+		char *l = haystack;
+		char *p = needle;
+
+		while (*l == *p && *p != '\0')
 		{
-			i++;
-			j++;
-			for (k = i; haystack[k]; k++)
-			{
-				if (needle[j] == '\0')
-					return (&(haystack[i - 1]));
-				if (haystack[k] != needle[j])
-					break;
-				j++;
-			}
+			l++;
+			p++;
 		}
-		i++;
-		j = 0;
+
+		if (*p == '\0')
+			return (haystack);
 	}
-	return (NULL);
+
+	return (0);
 }

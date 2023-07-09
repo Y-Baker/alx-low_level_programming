@@ -1,25 +1,27 @@
 #include "main.h"
-
-#include <stdlib.h>
+#include "stdlib.h"
 
 /**
- *_strpbrk - locate the first occurence in the string
- *@s: string
- *@accept: string
- *
- *Return: NULL
+ * _strpbrk - the fun 4
+ * @s: the string search in
+ * @accept: the string looking for
+ * Return: the string from first match to end
  */
 
 char *_strpbrk(char *s, char *accept)
 {
-int i = 0;
-int j = 0;
+	int len1 = 0, len2;
 
-for (i = 0; s[i]; i++)
-{
-for (j = 0; accept[j]; j++)
-if (*(accept + j) == s[i])
-return (&(s[i]));
-}
-return (NULL);
+	while (s[len1])
+	{
+		for (len2 = 0; accept[len2]; len2++)
+		{
+			if (s[len1] == accept[len2])
+			{
+				return (s + len1);
+			}
+		}
+		len1++;
+	}
+	return (NULL);
 }
