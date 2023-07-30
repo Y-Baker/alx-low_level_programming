@@ -1,4 +1,4 @@
-#include "C:\Users\asus\PROGRAMING\ALX\SEMESTER#2\C\0x1A\hash_tables.h"
+#include "hash_tables.h"
 
 /**
  * hash_table_create - create a hash table
