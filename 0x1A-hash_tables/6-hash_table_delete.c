@@ -31,6 +31,11 @@ void hash_table_delete(hash_table_t *ht)
 	free(ht);
 }
 
+
+/**
+ * free_node - free node for the hash table
+ * @node: the node of the hash table
+*/
 void free_node(hash_node_t *node)
 {
 	if (node)
