@@ -18,7 +18,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		key == NULL || strlen(key) == 0 || value == NULL)
 		return (0);
 
-	idx = key_index(key, ht->size);
+	idx = key_index((const unsigned char *)key, ht->size);
 
 	/*Check if this key is exit or not*/
 	tmp = ht->array[idx];
@@ -28,6 +28,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			tmp->value = (char *)value;
 		tmp = tmp->next;
 	}
+
+	/*Creat New Node [NOT EXIT]*/
 	new = malloc(sizeof(hash_node_t));
 	if (!new)
 		return (0);
