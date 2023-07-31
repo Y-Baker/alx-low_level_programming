@@ -24,8 +24,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	tmp = ht->array[idx];
 	while (tmp)
 	{
-		if (strcmp(tmp->key, key))
+		if (strcmp(tmp->key, key) == 0)
+		{
 			tmp->value = (char *)value;
+			return (1);
+		}
 		tmp = tmp->next;
 	}
 
