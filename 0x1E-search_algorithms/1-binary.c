@@ -28,7 +28,6 @@ int binary_search(int *array, size_t size, int value)
 			if (array[mid] < value) /*ignore the right half*/
 				min = mid + 1;
 		}
-		
 	}
 	return (-1);
 }
